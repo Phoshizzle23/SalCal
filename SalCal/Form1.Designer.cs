@@ -402,21 +402,7 @@
         }
 
         #endregion
-
-        private Button btnSave;
-        private Button btnCalculateTax;
-        private TextBox txtSuperannuation;
-        private TextBox txtNetPay;
-        private TextBox txtTax;
-        private TextBox txtGrossPay;
-        private TextBox TaxThreshold;
-        private TextBox txtHourlyRate;
-        private TextBox txtHoursWorked;
-        private TextBox txtLastName;
-        private TextBox txtFirstName;
-        private TextBox txtEmployeeID;
         private Panel panel3;
-        private ListBox employeeListBox;
         private Label label14;
         private Label label13;
         private Label label12;
@@ -435,5 +421,18 @@
         private Panel panel2;
         private Button X;
         private Label label2;
+        public ListBox employeeListBox;
+        public TextBox txtSuperannuation;
+        public TextBox txtNetPay;
+        public TextBox txtTax;
+        public TextBox txtGrossPay;
+        public TextBox TaxThreshold;
+        public TextBox txtHourlyRate;
+        public TextBox txtHoursWorked;
+        public TextBox txtLastName;
+        public TextBox txtFirstName;
+        public TextBox txtEmployeeID;
+        public Button btnSave;
+        public Button btnCalculateTax;
     }
 }

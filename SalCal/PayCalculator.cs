@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SalCal
 {
-    class PayCalculator
+    public class PayCalculator
     {
         private PaySlip paySlip;
 

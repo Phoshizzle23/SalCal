@@ -30,7 +30,7 @@ namespace SalCal
             public string TaxThreshold { get; set; }
         }
 
-        private void PopulateEmployeeListBox()
+        public void PopulateEmployeeListBox()
         {
             string csvFilePath = "employee.csv";
 
@@ -119,7 +119,7 @@ namespace SalCal
             }
         }
 
-        private void btnCalculateTax_Click(object sender, EventArgs e)
+        public void btnCalculateTax_Click(object sender, EventArgs e)
         {
             if (employeeListBox.SelectedIndex == -1)
             {
@@ -181,19 +181,16 @@ namespace SalCal
             }
         }
 
-
-        //New Export with CVSHelper
-        private void SavePaymentSummaryToCSV(string employeeID, string firstName, string lastName, double hoursWorked, double hourlyRate, string taxThreshold, double grossPay, double taxAmount, double netPay, double superannuation)
+        //NEWNEW Code Export with CVSHelper
+        public string SavePaymentSummaryToCSV(string employeeID, string firstName, string lastName, double hoursWorked, double hourlyRate, string taxThreshold, double grossPay, double taxAmount, double netPay, double superannuation)
         {
+            string fileName = GenerateFileName(employeeID, firstName, lastName);
+
             try
             {
-                // Generate the CSV file name based on the naming convention
-                string fileName = $"Pay-EmployeeID-{employeeID}-Fullname-{firstName}_{lastName}-{DateTime.Now.ToString("yyyyMMddHHmmss")}.csv";
-
                 using (var writer = new StreamWriter(fileName))
                 using (var csv = new CsvWriter(writer, new CsvConfiguration(CultureInfo.InvariantCulture)))
                 {
-                    // Write the payment summary data for the selected employee
                     csv.WriteRecord(new
                     {
                         EmployeeID = employeeID,
@@ -207,21 +204,69 @@ namespace SalCal
                         NetPay = netPay,
                         Superannuation = superannuation
                     });
+
+                    MessageBox.Show($"Payment summary for Employee ID {employeeID} saved to {fileName}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                MessageBox.Show($"Payment summary for Employee ID {employeeID} saved to {fileName}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return fileName; // Return the filename for testing
             }
             catch (IOException ex)
             {
                 LogError("Error writing payment summary to CSV: " + ex.Message);
-                MessageBox.Show("An error occurred while saving the payment summary. Please check the error log for details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null; // Indicate failure
             }
             catch (Exception ex)
             {
                 LogError("An unexpected error occurred while saving the payment summary: " + ex.Message);
-                MessageBox.Show("An unexpected error occurred while saving the payment summary. Please check the error log for details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null; // Indicate failure
             }
         }
+
+        private string GenerateFileName(string employeeID, string firstName, string lastName)
+        {
+            return $"Pay-EmployeeID-{employeeID}-Fullname-{firstName}_{lastName}-{DateTime.Now.ToString("yyyyMMddHHmmss")}.csv";
+        }
+
+        //New Export with CVSHelper
+        //public void SavePaymentSummaryToCSV(string employeeID, string firstName, string lastName, double hoursWorked, double hourlyRate, string taxThreshold, double grossPay, double taxAmount, double netPay, double superannuation)
+        //{
+        //    try
+        //    {
+        //        // Generate the CSV file name based on the naming convention
+        //        string fileName = $"Pay-EmployeeID-{employeeID}-Fullname-{firstName}_{lastName}-{DateTime.Now.ToString("yyyyMMddHHmmss")}.csv";
+
+        //        using (var writer = new StreamWriter(fileName))
+        //        using (var csv = new CsvWriter(writer, new CsvConfiguration(CultureInfo.InvariantCulture)))
+        //        {
+        //            // Write the payment summary data for the selected employee
+        //            csv.WriteRecord(new
+        //            {
+        //                EmployeeID = employeeID,
+        //                FirstName = firstName,
+        //                LastName = lastName,
+        //                HoursWorked = hoursWorked,
+        //                HourlyRate = hourlyRate,
+        //                TaxThreshold = taxThreshold,
+        //                GrossPay = grossPay,
+        //                Tax = taxAmount,
+        //                NetPay = netPay,
+        //                Superannuation = superannuation
+        //            });
+        //        }
+
+        //        MessageBox.Show($"Payment summary for Employee ID {employeeID} saved to {fileName}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    }
+        //    catch (IOException ex)
+        //    {
+        //        LogError("Error writing payment summary to CSV: " + ex.Message);
+        //        MessageBox.Show("An error occurred while saving the payment summary. Please check the error log for details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        LogError("An unexpected error occurred while saving the payment summary: " + ex.Message);
+        //        MessageBox.Show("An unexpected error occurred while saving the payment summary. Please check the error log for details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
 
         //Old export code without CVSHelper
