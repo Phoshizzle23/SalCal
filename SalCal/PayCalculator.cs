@@ -50,7 +50,7 @@ namespace SalCal
 
                 if (grossPay >= minIncome && grossPay < maxIncome)
                 {
-                    taxAmount = (grossPay * taxRate) + additionalConstant;
+                    taxAmount = ((grossPay + 0.99) * taxRate) - additionalConstant;
                     break;
                 }
             }
@@ -72,7 +72,7 @@ namespace SalCal
 
                 if (grossPay >= minIncome && grossPay < maxIncome)
                 {
-                    taxAmount = (grossPay * taxRate) + additionalConstant;
+                    taxAmount = ((grossPay + 0.99) * taxRate) - additionalConstant;
                     break;
                 }
             }

@@ -8,11 +8,10 @@ namespace TestProject1
         [TestMethod]
         public void TestMethod1() // Test UI to Load employee.csv to EmployeeListBox
         {
-            // Arrange: Set up any necessary conditions for testing, e.g., create a sample CSV file.
-            string csvFilePath = "employee.csv";
+            // Arrange: Set up any necessary conditions for testing
+            var form = new Form1(); // Create an instance of the form containing PopulateEmployeeListBox.
 
             // Act: Call the method to be tested.
-            var form = new Form1(); // Create an instance of the form containing PopulateEmployeeListBox.
             form.PopulateEmployeeListBox();
 
             // Assert: Check if the ListBox contains the expected items.
@@ -20,8 +19,8 @@ namespace TestProject1
             Assert.AreEqual(7, form.employeeListBox.Items.Count); // Example assertion.
         }
 
-        [TestMethod] //Test Methods
-        public void TestMethod2()
+        [TestMethod]
+        public void TestMethod2() //Test Methods
         {
             // Arrange
             var form = new Form1();
@@ -45,15 +44,57 @@ namespace TestProject1
             // Assert
             // Calculate the expected values based on the provided input
             double expectedGrossPay = 25 * 40; // Assuming hourly rate * hours worked
-            double expectedTax = payCalculator.CalculateTax(expectedGrossPay, "Y"); 
+            double expectedTax = payCalculator.CalculateTax(expectedGrossPay, "Y");
             double expectedNetPay = expectedGrossPay - expectedTax;
             double expectedSuperannuation = expectedGrossPay * 0.11; // Assuming superannuation rate of 11%
 
-            Assert.AreEqual(expectedGrossPay.ToString(), form.txtGrossPay.Text);
-            Assert.AreEqual(expectedTax.ToString(), form.txtTax.Text);
-            Assert.AreEqual(expectedNetPay.ToString(), form.txtNetPay.Text);
-            Assert.AreEqual(expectedSuperannuation.ToString(), form.txtSuperannuation.Text);
+            // Compare to predefined numbers
+            double predefinedGrossPay = 1000.0; 
+            double predefinedTax = 161.83232299999997; 
+            double predefinedNetPay = 838.167677;
+            double predefinedSuperannuation = 110.0; 
+
+            Assert.AreEqual(predefinedGrossPay, expectedGrossPay);
+            Assert.AreEqual(predefinedTax, expectedTax);
+            Assert.AreEqual(predefinedNetPay, expectedNetPay);
+            Assert.AreEqual(predefinedSuperannuation, expectedSuperannuation);
         }
+
+
+        //[TestMethod] //Test Methods
+        //public void TestMethod2()
+        //{
+        //    // Arrange
+        //    var form = new Form1();
+        //    form.txtEmployeeID.Text = "1";
+        //    form.txtFirstName.Text = "Marge";
+        //    form.txtLastName.Text = "Larkin";
+        //    form.txtHourlyRate.Text = "25"; // Set the hourly rate
+        //    form.txtHoursWorked.Text = "40"; // Set the hours worked
+        //    form.TaxThreshold.Text = "Y";
+
+        //    PayCalculator payCalculator = new PayCalculator();
+
+        //    // Simulate adding an item to the employeeListBox and selecting it
+        //    string employeeDetail = "1, Marge, Larkin, 25, Y";
+        //    form.employeeListBox.Items.Add(employeeDetail);
+        //    form.employeeListBox.SelectedIndex = 0;
+
+        //    // Act
+        //    form.btnCalculateTax_Click(null, null);
+
+        //    // Assert
+        //    // Calculate the expected values based on the provided input
+        //    double expectedGrossPay = 25 * 40; // Assuming hourly rate * hours worked
+        //    double expectedTax = payCalculator.CalculateTax(expectedGrossPay, "Y"); 
+        //    double expectedNetPay = expectedGrossPay - expectedTax;
+        //    double expectedSuperannuation = expectedGrossPay * 0.11; // Assuming superannuation rate of 11%
+
+        //    Assert.AreEqual(expectedGrossPay.ToString(), form.txtGrossPay.Text);
+        //    Assert.AreEqual(expectedTax.ToString(), form.txtTax.Text);
+        //    Assert.AreEqual(expectedNetPay.ToString(), form.txtNetPay.Text);
+        //    Assert.AreEqual(expectedSuperannuation.ToString(), form.txtSuperannuation.Text);
+        //}
 
 
         //[TestMethod]
@@ -112,7 +153,7 @@ namespace TestProject1
                 string fileContent = File.ReadAllText(fileName);
                 Assert.IsTrue(fileContent.Contains(employeeID), "Employee ID should be in the file content.");
                 Assert.IsTrue(fileContent.Contains(firstName), "First Name should be in the file content.");
-                // Continue with similar checks for other data in the file.
+                
             }
         }
 
