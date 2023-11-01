@@ -6,6 +6,8 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>C:\Users\matt_\Desktop\SalCal\Documentation\OOprogramming_documentation.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

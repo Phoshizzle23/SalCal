@@ -6,20 +6,38 @@ using System.Threading.Tasks;
 
 namespace SalCal
 {
+    /// <summary>
+    /// Represents a Pay Calculator class that provides methods for calculating various payroll-related values.
+    /// </summary>
     public class PayCalculator
     {
         private PaySlip paySlip;
 
+        /// <summary>
+        /// Initializes a new instance of the PayCalculator class and creates a PaySlip object.
+        /// </summary>
         public PayCalculator()
         {
             paySlip = new PaySlip();
         }
 
+        /// <summary>
+        /// Calculates the gross pay based on the hours worked and hourly rate.
+        /// </summary>
+        /// <param name="hoursWorked">The number of hours worked.</param>
+        /// <param name="hourlyRate">The hourly rate of pay.</param>
+        /// <returns>The calculated gross pay.</returns>
         public double CalculateGrossPay(double hoursWorked, double hourlyRate)
         {
             return hoursWorked * hourlyRate;
         }
 
+        /// <summary>
+        /// Calculates the tax amount based on the gross pay and tax rate method.
+        /// </summary>
+        /// <param name="grossPay">The gross pay amount.</param>
+        /// <param name="taxRateMethod">The tax rate method ('Y' for thresholds, 'N' for no thresholds).</param>
+        /// <returns>The calculated tax amount.</returns>
         public double CalculateTax(double grossPay, string taxRateMethod)
         {
             double taxAmount = 0;
@@ -36,6 +54,11 @@ namespace SalCal
             return taxAmount;
         }
 
+        /// <summary>
+        /// Calculates the tax amount with income thresholds.
+        /// </summary>
+        /// <param name="grossPay">The gross pay amount.</param>
+        /// <returns>The calculated tax amount with thresholds.</returns>
         private double CalculateTaxWithThresholds(double grossPay)
         {
             double taxAmount = 0;
@@ -58,6 +81,11 @@ namespace SalCal
             return taxAmount;
         }
 
+        /// <summary>
+        /// Calculates the tax amount without income thresholds.
+        /// </summary>
+        /// <param name="grossPay">The gross pay amount.</param>
+        /// <returns>The calculated tax amount without thresholds.</returns>
         private double CalculateTaxWithoutThresholds(double grossPay)
         {
             double taxAmount = 0;
@@ -80,11 +108,23 @@ namespace SalCal
             return taxAmount;
         }
 
+        /// <summary>
+        /// Calculates the net pay based on the gross pay and tax amount.
+        /// </summary>
+        /// <param name="grossPay">The gross pay amount.</param>
+        /// <param name="taxAmount">The tax amount.</param>
+        /// <returns>The calculated net pay.</returns>
         public double CalculateNetPay(double grossPay, double taxAmount)
         {
             return grossPay - taxAmount;
         }
 
+        /// <summary>
+        /// Calculates the superannuation amount based on the gross pay and superannuation rate.
+        /// </summary>
+        /// <param name="grossPay">The gross pay amount.</param>
+        /// <param name="superRate">The superannuation rate.</param>
+        /// <returns>The calculated superannuation amount.</returns>
         public double CalculateSuperannuation(double grossPay, double superRate)
         {
             return grossPay * superRate;

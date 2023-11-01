@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SalCal</name>
+    </assembly>
+    <members>
+        <member name="T:SalCal.Form1">
+            <summary>
+            Represents the main form of the Salary Calculator application.
+            </summary>
+        </member>
+        <member name="T:SalCal.Form1.EmployeeRecord">
+            <summary>
+            Represents a data structure for storing employee details.
+            </summary>
+        </member>
+        <member name="M:SalCal.Form1.PopulateEmployeeListBox">
+            <summary>
+            Populates the ListBox control with employee details read from a CSV file.
+            </summary>
+        </member>
+        <member name="M:SalCal.Form1.LogError(System.String)">
+            <summary>
+            Logs an error message to an error log file.
+            </summary>
+            <param name="errorMessage">The error message to be logged.</param>
+        </member>
+        <member name="M:SalCal.Form1.employeeListBox_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            Handles the selection change of the employeeListBox.
+            Updates the displayed employee details when a different employee is selected.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">An instance of the <see cref="T:System.EventArgs"/> class.</param>
+        </member>
+        <member name="M:SalCal.Form1.btnCalculateTax_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the "Calculate Tax" button click event.
+            Calculates tax and displays payment summary for the selected employee.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">An instance of the <see cref="T:System.EventArgs"/> class.</param>
+        </member>
+        <member name="M:SalCal.Form1.btnSave_Click_1(System.Object,System.EventArgs)">
+            <summary>
+            Handles the "Save" button click event.
+            Saves the payment summary to a CSV file.
+            </summary>
+        </member>
+        <member name="M:SalCal.Form1.X_Click(System.Object,System.EventArgs)">
+            <summary>
+            Closes the application when the close button is clicked.
+            </summary>
+        </member>
+        <member name="F:SalCal.Form1.components">
+            <summary>
+             Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SalCal.Form1.Dispose(System.Boolean)">
+            <summary>
+             Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SalCal.Form1.InitializeComponent">
+            <summary>
+             Required method for Designer support - do not modify
+             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:SalCal.PayCalculator">
+            <summary>
+            Represents a Pay Calculator class that provides methods for calculating various payroll-related values.
+            </summary>
+        </member>
+        <member name="M:SalCal.PayCalculator.#ctor">
+            <summary>
+            Initializes a new instance of the PayCalculator class and creates a PaySlip object.
+            </summary>
+        </member>
+        <member name="M:SalCal.PayCalculator.CalculateGrossPay(System.Double,System.Double)">
+            <summary>
+            Calculates the gross pay based on the hours worked and hourly rate.
+            </summary>
+            <param name="hoursWorked">The number of hours worked.</param>
+            <param name="hourlyRate">The hourly rate of pay.</param>
+            <returns>The calculated gross pay.</returns>
+        </member>
+        <member name="M:SalCal.PayCalculator.CalculateTax(System.Double,System.String)">
+            <summary>
+            Calculates the tax amount based on the gross pay and tax rate method.
+            </summary>
+            <param name="grossPay">The gross pay amount.</param>
+            <param name="taxRateMethod">The tax rate method ('Y' for thresholds, 'N' for no thresholds).</param>
+            <returns>The calculated tax amount.</returns>
+        </member>
+        <member name="M:SalCal.PayCalculator.CalculateTaxWithThresholds(System.Double)">
+            <summary>
+            Calculates the tax amount with income thresholds.
+            </summary>
+            <param name="grossPay">The gross pay amount.</param>
+            <returns>The calculated tax amount with thresholds.</returns>
+        </member>
+        <member name="M:SalCal.PayCalculator.CalculateTaxWithoutThresholds(System.Double)">
+            <summary>
+            Calculates the tax amount without income thresholds.
+            </summary>
+            <param name="grossPay">The gross pay amount.</param>
+            <returns>The calculated tax amount without thresholds.</returns>
+        </member>
+        <member name="M:SalCal.PayCalculator.CalculateNetPay(System.Double,System.Double)">
+            <summary>
+            Calculates the net pay based on the gross pay and tax amount.
+            </summary>
+            <param name="grossPay">The gross pay amount.</param>
+            <param name="taxAmount">The tax amount.</param>
+            <returns>The calculated net pay.</returns>
+        </member>
+        <member name="M:SalCal.PayCalculator.CalculateSuperannuation(System.Double,System.Double)">
+            <summary>
+            Calculates the superannuation amount based on the gross pay and superannuation rate.
+            </summary>
+            <param name="grossPay">The gross pay amount.</param>
+            <param name="superRate">The superannuation rate.</param>
+            <returns>The calculated superannuation amount.</returns>
+        </member>
+        <member name="T:SalCal.PaySlip">
+            <summary>
+            Represents a PaySlip class responsible for managing tax rate data and reading from CSV files.
+            </summary>
+        </member>
+        <member name="P:SalCal.PaySlip.TaxRatesWithThresholds">
+            <summary>
+            Gets or sets tax rates with income thresholds.
+            </summary>
+        </member>
+        <member name="P:SalCal.PaySlip.TaxRatesWithoutThresholds">
+            <summary>
+            Gets or sets tax rates without income thresholds.
+            </summary>
+        </member>
+        <member name="M:SalCal.PaySlip.#ctor">
+            <summary>
+            Initializes a new instance of the PaySlip class and populates tax rate data.
+            </summary>
+        </member>
+        <member name="M:SalCal.PaySlip.PopulateTaxRatesWithThresholds">
+            <summary>
+            Populates tax rates with income thresholds from a CSV file.
+            </summary>
+        </member>
+        <member name="M:SalCal.PaySlip.PopulateTaxRatesWithoutThresholds">
+            <summary>
+            Populates tax rates without income thresholds from a CSV file.
+            </summary>
+        </member>
+        <member name="M:SalCal.PaySlip.ReadTaxRateData(System.String)">
+            <summary>
+            Reads tax rate data from a CSV file and returns a two-dimensional array.
+            </summary>
+            <param name="fileName">The name of the CSV file to read.</param>
+            <returns>A two-dimensional array containing tax rate data.</returns>
+        </member>
+        <member name="M:SalCal.Program.Main">
+            <summary>
+             The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:SalCal.ApplicationConfiguration">
+            <summary>
+             Bootstrap the application configuration.
+            </summary>
+        </member>
+        <member name="M:SalCal.ApplicationConfiguration.Initialize">
+            <summary>
+             Bootstrap the application as follows:
+             <code>
+             global::System.Windows.Forms.Application.EnableVisualStyles();
+             global::System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+             global::System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            </code>
+            </summary>
+        </member>
+    </members>
+</doc>

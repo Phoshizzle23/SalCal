@@ -7,11 +7,24 @@ using Csv;
 
 namespace SalCal
 {
+    /// <summary>
+    /// Represents a PaySlip class responsible for managing tax rate data and reading from CSV files.
+    /// </summary>
     class PaySlip
     {
+        /// <summary>
+        /// Gets or sets tax rates with income thresholds.
+        /// </summary>
         public double[,] TaxRatesWithThresholds { get; private set; }
+
+        /// <summary>
+        /// Gets or sets tax rates without income thresholds.
+        /// </summary>
         public double[,] TaxRatesWithoutThresholds { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the PaySlip class and populates tax rate data.
+        /// </summary>
         public PaySlip()
         {
             // Call methods to read tax rate data files and populate the class
@@ -19,18 +32,29 @@ namespace SalCal
             PopulateTaxRatesWithoutThresholds();
         }
 
+        /// <summary>
+        /// Populates tax rates with income thresholds from a CSV file.
+        /// </summary>
         private void PopulateTaxRatesWithThresholds()
         {
             string taxRateDataFile = "taxrate-withthreshold.csv";
             TaxRatesWithThresholds = ReadTaxRateData(taxRateDataFile);
         }
 
+        /// <summary>
+        /// Populates tax rates without income thresholds from a CSV file.
+        /// </summary>
         private void PopulateTaxRatesWithoutThresholds()
         {
             string taxRateDataFile = "taxrate-nothreshold.csv";
             TaxRatesWithoutThresholds = ReadTaxRateData(taxRateDataFile);
         }
 
+        /// <summary>
+        /// Reads tax rate data from a CSV file and returns a two-dimensional array.
+        /// </summary>
+        /// <param name="fileName">The name of the CSV file to read.</param>
+        /// <returns>A two-dimensional array containing tax rate data.</returns>
         private double[,] ReadTaxRateData(string fileName)
         {
             try
@@ -71,7 +95,5 @@ namespace SalCal
                 return null;
             }
         }
-
-        
     }
 }

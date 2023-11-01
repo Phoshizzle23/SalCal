@@ -7,6 +7,9 @@ using CsvHelper.Configuration;
 
 namespace SalCal
 {
+    /// <summary>
+    /// Represents the main form of the Salary Calculator application.
+    /// </summary>
     public partial class Form1 : Form
     {
         private PayCalculator payCalculator;
@@ -21,6 +24,10 @@ namespace SalCal
             // Call the method to populate the ListBox with employee details
             PopulateEmployeeListBox();
         }
+
+        /// <summary>
+        /// Represents a data structure for storing employee details.
+        /// </summary>
         public class EmployeeRecord
         {
             public string EmployeeID { get; set; }
@@ -30,6 +37,9 @@ namespace SalCal
             public string TaxThreshold { get; set; }
         }
 
+        /// <summary>
+        /// Populates the ListBox control with employee details read from a CSV file.
+        /// </summary>
         public void PopulateEmployeeListBox()
         {
             string csvFilePath = "employee.csv";
@@ -74,6 +84,10 @@ namespace SalCal
             }
         }
 
+        /// <summary>
+        /// Logs an error message to an error log file.
+        /// </summary>
+        /// <param name="errorMessage">The error message to be logged.</param>
         private void LogError(string errorMessage)
         {
             try
@@ -91,6 +105,12 @@ namespace SalCal
             }
         }
 
+        /// <summary>
+        /// Handles the selection change of the employeeListBox.
+        /// Updates the displayed employee details when a different employee is selected.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">An instance of the <see cref="EventArgs"/> class.</param>
         private void employeeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             // The code below is for handling the selection change of the employeeListBox.
@@ -107,18 +127,24 @@ namespace SalCal
                     string firstName = employeeDetails[1].Trim();
                     string lastName = employeeDetails[2].Trim();
                     double hourlyRate = Double.Parse(employeeDetails[3].Trim());
-                    string taxThreshold = employeeDetails[4].Trim(); // this added
+                    string taxThreshold = employeeDetails[4].Trim();
 
 
                     txtEmployeeID.Text = employeeID;
                     txtFirstName.Text = firstName;
                     txtLastName.Text = lastName;
                     txtHourlyRate.Text = hourlyRate.ToString();
-                    TaxThreshold.Text = taxThreshold; // this added
+                    TaxThreshold.Text = taxThreshold; 
                 }
             }
         }
 
+        /// <summary>
+        /// Handles the "Calculate Tax" button click event.
+        /// Calculates tax and displays payment summary for the selected employee.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">An instance of the <see cref="EventArgs"/> class.</param>
         public void btnCalculateTax_Click(object sender, EventArgs e)
         {
             if (employeeListBox.SelectedIndex == -1)
@@ -150,7 +176,7 @@ namespace SalCal
                     return;
                 }
 
-                string taxRateMethod = taxThreshold; // this changed from string taxRateMethod = "Y"
+                string taxRateMethod = taxThreshold; 
 
                 // Calculate the payment summary using the PayCalculator class
                 double grossPay = payCalculator.CalculateGrossPay(hoursWorked, hourlyRate);
@@ -166,7 +192,7 @@ namespace SalCal
                 txtFirstName.Text = firstName;
                 txtLastName.Text = lastName;
                 txtHourlyRate.Text = hourlyRate.ToString();
-                TaxThreshold.Text = taxThreshold; // Added this last time
+                TaxThreshold.Text = taxThreshold; 
                 txtGrossPay.Text = grossPay.ToString();
                 txtTax.Text = taxAmount.ToString();
                 txtNetPay.Text = netPay.ToString();
@@ -181,9 +207,16 @@ namespace SalCal
             }
         }
 
-        //NEWNEW Code Export with CVSHelper
+        //Code Export with CVSHelper
         public string SavePaymentSummaryToCSV(string employeeID, string firstName, string lastName, double hoursWorked, double hourlyRate, string taxThreshold, double grossPay, double taxAmount, double netPay, double superannuation)
         {
+            /// <summary>
+            /// Generates a unique CSV filename for saving the payment summary.
+            /// </summary>
+            /// <param name="employeeID">The employee's ID.</param>
+            /// <param name="firstName">The employee's first name.</param>
+            /// <param name="lastName">The employee's last name.</param>
+            /// <returns>The generated CSV filename.</returns>
             string fileName = GenerateFileName(employeeID, firstName, lastName);
 
             try
@@ -227,80 +260,10 @@ namespace SalCal
             return $"Pay-EmployeeID-{employeeID}-Fullname-{firstName}_{lastName}-{DateTime.Now.ToString("yyyyMMddHHmmss")}.csv";
         }
 
-        //New Export with CVSHelper
-        //public void SavePaymentSummaryToCSV(string employeeID, string firstName, string lastName, double hoursWorked, double hourlyRate, string taxThreshold, double grossPay, double taxAmount, double netPay, double superannuation)
-        //{
-        //    try
-        //    {
-        //        // Generate the CSV file name based on the naming convention
-        //        string fileName = $"Pay-EmployeeID-{employeeID}-Fullname-{firstName}_{lastName}-{DateTime.Now.ToString("yyyyMMddHHmmss")}.csv";
-
-        //        using (var writer = new StreamWriter(fileName))
-        //        using (var csv = new CsvWriter(writer, new CsvConfiguration(CultureInfo.InvariantCulture)))
-        //        {
-        //            // Write the payment summary data for the selected employee
-        //            csv.WriteRecord(new
-        //            {
-        //                EmployeeID = employeeID,
-        //                FirstName = firstName,
-        //                LastName = lastName,
-        //                HoursWorked = hoursWorked,
-        //                HourlyRate = hourlyRate,
-        //                TaxThreshold = taxThreshold,
-        //                GrossPay = grossPay,
-        //                Tax = taxAmount,
-        //                NetPay = netPay,
-        //                Superannuation = superannuation
-        //            });
-        //        }
-
-        //        MessageBox.Show($"Payment summary for Employee ID {employeeID} saved to {fileName}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //    catch (IOException ex)
-        //    {
-        //        LogError("Error writing payment summary to CSV: " + ex.Message);
-        //        MessageBox.Show("An error occurred while saving the payment summary. Please check the error log for details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        LogError("An unexpected error occurred while saving the payment summary: " + ex.Message);
-        //        MessageBox.Show("An unexpected error occurred while saving the payment summary. Please check the error log for details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-
-        //Old export code without CVSHelper
-        //private void SavePaymentSummaryToCSV(string employeeID, string firstName, string lastName, double hoursWorked, double hourlyRate, string taxThreshold, double grossPay, double taxAmount, double netPay, double superannuation)
-        //{
-        //    try
-        //    {
-        //        // Generate the CSV file name based on the naming convention
-        //        string fileName = $"Pay-EmployeeID-{employeeID}-Fullname-{firstName}_{lastName}-{DateTime.Now.ToString("yyyyMMddHHmmss")}.csv";
-
-        //        // Create the CSV file and write the payment summary data
-        //        using (StreamWriter writer = new StreamWriter(fileName))
-        //        {
-        //            // Write the header row
-        //            writer.WriteLine("EmployeeID,FirstName,LastName,HoursWorked,HourlyRate,TaxThreshold,GrossPay,Tax,NetPay,Superannuation"); //Removed TaxThreshold to fix cvs file
-
-        //            // Write the payment summary data for the selected employee
-        //            writer.WriteLine($"{employeeID},{firstName},{lastName},{hoursWorked},{hourlyRate},{taxThreshold},{grossPay},{taxAmount},{netPay},{superannuation}"); // include TaxThreshold?
-        //        }
-
-        //        MessageBox.Show($"Payment summary for Employee ID {employeeID} saved to {fileName}.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //    catch (IOException ex)
-        //    {
-        //        LogError("Error writing payment summary to CSV: " + ex.Message);
-        //        MessageBox.Show("An error occurred while saving the payment summary. Please check the error log for details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        LogError("An unexpected error occurred while saving the payment summary: " + ex.Message);
-        //        MessageBox.Show("An unexpected error occurred while saving the payment summary. Please check the error log for details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
+        /// <summary>
+        /// Handles the "Save" button click event.
+        /// Saves the payment summary to a CSV file.
+        /// </summary>
         private void btnSave_Click_1(object sender, EventArgs e)
         {
             if (employeeListBox.SelectedIndex == -1)
@@ -346,7 +309,7 @@ namespace SalCal
                 txtEmployeeID.Text = employeeID;
                 txtFirstName.Text = firstName;
                 txtLastName.Text = lastName;
-                TaxThreshold.Text = taxThreshold; // Added this last time
+                TaxThreshold.Text = taxThreshold; 
                 txtGrossPay.Text = grossPay.ToString();
                 txtTax.Text = taxAmount.ToString();
                 txtNetPay.Text = netPay.ToString();
@@ -363,6 +326,9 @@ namespace SalCal
             }
         }
 
+        /// <summary>
+        /// Closes the application when the close button is clicked.
+        /// </summary>
         private void X_Click(object sender, EventArgs e)
         {
             this.Close();
