@@ -170,7 +170,7 @@ namespace SalCal
                 double hoursWorked;
                 //double hourlyRate;
 
-                if (!double.TryParse(txtHoursWorked.Text, out hoursWorked)) /*|| !double.TryParse(txtHourlyRate.Text, out hourlyRate))*/
+                if (!double.TryParse(txtHoursWorked.Text, out hoursWorked))
                 {
                     MessageBox.Show("Invalid input for hours worked.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -276,13 +276,13 @@ namespace SalCal
             string selectedEmployee = employeeListBox.SelectedItem.ToString();
             string[] employeeDetails = selectedEmployee.Split(',');
 
-            if (employeeDetails.Length >= 5) // this changed from 3
+            if (employeeDetails.Length >= 5)
             {
                 // Extract the employee ID, first name, and last name from the selected item
                 string employeeID = employeeDetails[0].Trim();
                 string firstName = employeeDetails[1].Trim();
                 string lastName = employeeDetails[2].Trim();
-                string taxThreshold = employeeDetails[4].Trim(); // this added
+                string taxThreshold = employeeDetails[4].Trim();
 
                 // Input the hours worked and hourly rate from the user
                 double hoursWorked;
@@ -294,7 +294,7 @@ namespace SalCal
                     return;
                 }
 
-                string taxRateMethod = taxThreshold; // this changed from string taxRateMethod = "Y"
+                string taxRateMethod = taxThreshold;
 
                 // Calculate the payment summary using the PayCalculator class
                 double grossPay = payCalculator.CalculateGrossPay(hoursWorked, hourlyRate);

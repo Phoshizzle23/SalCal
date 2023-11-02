@@ -59,64 +59,7 @@ namespace TestProject1
             Assert.AreEqual(predefinedNetPay, expectedNetPay);
             Assert.AreEqual(predefinedSuperannuation, expectedSuperannuation);
         }
-
-
-        //[TestMethod] //Test Methods
-        //public void TestMethod2()
-        //{
-        //    // Arrange
-        //    var form = new Form1();
-        //    form.txtEmployeeID.Text = "1";
-        //    form.txtFirstName.Text = "Marge";
-        //    form.txtLastName.Text = "Larkin";
-        //    form.txtHourlyRate.Text = "25"; // Set the hourly rate
-        //    form.txtHoursWorked.Text = "40"; // Set the hours worked
-        //    form.TaxThreshold.Text = "Y";
-
-        //    PayCalculator payCalculator = new PayCalculator();
-
-        //    // Simulate adding an item to the employeeListBox and selecting it
-        //    string employeeDetail = "1, Marge, Larkin, 25, Y";
-        //    form.employeeListBox.Items.Add(employeeDetail);
-        //    form.employeeListBox.SelectedIndex = 0;
-
-        //    // Act
-        //    form.btnCalculateTax_Click(null, null);
-
-        //    // Assert
-        //    // Calculate the expected values based on the provided input
-        //    double expectedGrossPay = 25 * 40; // Assuming hourly rate * hours worked
-        //    double expectedTax = payCalculator.CalculateTax(expectedGrossPay, "Y"); 
-        //    double expectedNetPay = expectedGrossPay - expectedTax;
-        //    double expectedSuperannuation = expectedGrossPay * 0.11; // Assuming superannuation rate of 11%
-
-        //    Assert.AreEqual(expectedGrossPay.ToString(), form.txtGrossPay.Text);
-        //    Assert.AreEqual(expectedTax.ToString(), form.txtTax.Text);
-        //    Assert.AreEqual(expectedNetPay.ToString(), form.txtNetPay.Text);
-        //    Assert.AreEqual(expectedSuperannuation.ToString(), form.txtSuperannuation.Text);
-        //}
-
-
-        //[TestMethod]
-        //public void TestMethod2() //Test Methods
-        //{
-        //    // Arrange: Set up the test scenario with sample data, such as a mock employeeListBox and input textboxes.
-        //    var form = new Form1();
-        //    form.txtEmployeeID.Text = "111";
-        //    form.txtFirstName.Text = "Matt";
-        //    form.txtLastName.Text = "Woodward";
-        //    form.txtHourlyRate.Text = "25";
-        //    form.txtHourlyRate.Text = "25";
-        //    form.TaxThreshold.Text = "Y"; 
-
-        //    form.btnCalculateTax_Click(null, null); // Simulate button click.
-
-        //    // Assert: Check if the text in the output textboxes matches the expected results.
-        //    Assert.AreEqual("625", form.txtGrossPay.Text);
-        //    Assert.AreEqual("199.5965", form.txtTax.Text); // Example assertion for gross pay.
-        //    Assert.AreEqual("425.4035", form.txtNetPay.Text);
-        //    Assert.AreEqual("68.75", form.txtSuperannuation.Text);
-        //}
+                
 
         [TestMethod]
         public void TestMethod3() // Test use-components export to SavePaymentSummaryToCSV
