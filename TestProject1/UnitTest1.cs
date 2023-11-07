@@ -16,7 +16,7 @@ namespace TestProject1
 
             // Assert: Check if the ListBox contains the expected items.
             // Replace the following with your specific assertions based on your test data.
-            Assert.AreEqual(7, form.employeeListBox.Items.Count); // Example assertion.
+            Assert.AreEqual(7, form.employeeListBox.Items.Count); // Assertion of 7 entries from the CVS.
         }
 
         [TestMethod]
