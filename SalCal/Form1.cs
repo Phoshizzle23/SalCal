@@ -121,7 +121,7 @@ namespace SalCal
                 string selectedEmployee = employeeListBox.SelectedItem.ToString();
                 string[] employeeDetails = selectedEmployee.Split(',');
 
-                if (employeeDetails.Length >= 5) // Updated this
+                if (employeeDetails.Length >= 5)
                 {
                     string employeeID = employeeDetails[0].Trim();
                     string firstName = employeeDetails[1].Trim();
@@ -157,18 +157,18 @@ namespace SalCal
             string selectedEmployee = employeeListBox.SelectedItem.ToString();
             string[] employeeDetails = selectedEmployee.Split(',');
 
-            if (employeeDetails.Length >= 5) // this changed from 3
+            if (employeeDetails.Length >= 5)
             {
                 // Extract the employee ID, first name, and last name from the selected item
                 string employeeID = employeeDetails[0].Trim();
                 string firstName = employeeDetails[1].Trim();
                 string lastName = employeeDetails[2].Trim();
                 double hourlyRate = Double.Parse(employeeDetails[3].Trim());
-                string taxThreshold = employeeDetails[4].Trim(); // this added
+                string taxThreshold = employeeDetails[4].Trim();
 
                 // Input the hours worked and hourly rate from the user
                 double hoursWorked;
-                //double hourlyRate;
+                
 
                 if (!double.TryParse(txtHoursWorked.Text, out hoursWorked))
                 {

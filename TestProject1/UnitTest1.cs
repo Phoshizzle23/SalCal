@@ -62,7 +62,7 @@ namespace TestProject1
                 
 
         [TestMethod]
-        public void TestMethod3() // Test use-components export to SavePaymentSummaryToCSV
+        public void TestMethod3() // Test reuse-components export to SavePaymentSummaryToCSV
         {
             // Arrange - Set up the test data and environment
             string employeeID = "123";
