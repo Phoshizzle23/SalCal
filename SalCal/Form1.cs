@@ -134,7 +134,7 @@ namespace SalCal
                     txtFirstName.Text = firstName;
                     txtLastName.Text = lastName;
                     txtHourlyRate.Text = hourlyRate.ToString();
-                    TaxThreshold.Text = taxThreshold; 
+                    TaxThreshold.Text = taxThreshold;
                 }
             }
         }
@@ -176,7 +176,7 @@ namespace SalCal
                     return;
                 }
 
-                string taxRateMethod = taxThreshold; 
+                string taxRateMethod = taxThreshold;
 
                 // Calculate the payment summary using the PayCalculator class
                 double grossPay = payCalculator.CalculateGrossPay(hoursWorked, hourlyRate);
@@ -192,7 +192,7 @@ namespace SalCal
                 txtFirstName.Text = firstName;
                 txtLastName.Text = lastName;
                 txtHourlyRate.Text = hourlyRate.ToString();
-                TaxThreshold.Text = taxThreshold; 
+                TaxThreshold.Text = taxThreshold;
                 txtGrossPay.Text = grossPay.ToString();
                 txtTax.Text = taxAmount.ToString();
                 txtNetPay.Text = netPay.ToString();
@@ -309,7 +309,7 @@ namespace SalCal
                 txtEmployeeID.Text = employeeID;
                 txtFirstName.Text = firstName;
                 txtLastName.Text = lastName;
-                TaxThreshold.Text = taxThreshold; 
+                TaxThreshold.Text = taxThreshold;
                 txtGrossPay.Text = grossPay.ToString();
                 txtTax.Text = taxAmount.ToString();
                 txtNetPay.Text = netPay.ToString();
@@ -335,6 +335,11 @@ namespace SalCal
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
         {
 
         }

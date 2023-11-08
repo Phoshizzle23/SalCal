@@ -41,6 +41,9 @@
             txtFirstName = new TextBox();
             txtEmployeeID = new TextBox();
             panel3 = new Panel();
+            label22 = new Label();
+            label23 = new Label();
+            label15 = new Label();
             label2 = new Label();
             employeeListBox = new ListBox();
             label14 = new Label();
@@ -60,6 +63,12 @@
             label1 = new Label();
             label6 = new Label();
             panel2 = new Panel();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            label19 = new Label();
+            label20 = new Label();
+            label21 = new Label();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -163,6 +172,9 @@
             // panel3
             // 
             panel3.BackColor = Color.DarkViolet;
+            panel3.Controls.Add(label22);
+            panel3.Controls.Add(label23);
+            panel3.Controls.Add(label15);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(txtSuperannuation);
             panel3.Controls.Add(txtNetPay);
@@ -192,6 +204,40 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(562, 541);
             panel3.TabIndex = 5;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Showcard Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label22.ForeColor = Color.WhiteSmoke;
+            label22.Location = new Point(444, 139);
+            label22.Name = "label22";
+            label22.Size = new Size(48, 17);
+            label22.TabIndex = 29;
+            label22.Text = "Step 1";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Showcard Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label23.ForeColor = Color.WhiteSmoke;
+            label23.Location = new Point(360, 156);
+            label23.Name = "label23";
+            label23.Size = new Size(194, 17);
+            label23.TabIndex = 28;
+            label23.Text = "Select employee from list";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Showcard Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label15.ForeColor = Color.WhiteSmoke;
+            label15.Location = new Point(443, 275);
+            label15.Name = "label15";
+            label15.Size = new Size(49, 17);
+            label15.TabIndex = 27;
+            label15.Text = "Step 2";
+            label15.Click += label15_Click;
             // 
             // label2
             // 
@@ -380,11 +426,83 @@
             panel2.Size = new Size(1269, 32);
             panel2.TabIndex = 6;
             // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Showcard Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label16.ForeColor = Color.DarkViolet;
+            label16.Location = new Point(780, 438);
+            label16.Name = "label16";
+            label16.Size = new Size(49, 17);
+            label16.TabIndex = 29;
+            label16.Text = "Step 3";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Showcard Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label17.ForeColor = Color.DarkViolet;
+            label17.Location = new Point(699, 455);
+            label17.Name = "label17";
+            label17.Size = new Size(211, 17);
+            label17.TabIndex = 28;
+            label17.Text = "Press Calculate Tax Button";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Showcard Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label18.ForeColor = Color.DarkViolet;
+            label18.Location = new Point(1054, 438);
+            label18.Name = "label18";
+            label18.Size = new Size(50, 17);
+            label18.TabIndex = 31;
+            label18.Text = "Step 4";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Showcard Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label19.ForeColor = Color.DarkViolet;
+            label19.Location = new Point(1010, 455);
+            label19.Name = "label19";
+            label19.Size = new Size(139, 17);
+            label19.TabIndex = 30;
+            label19.Text = "Press Save Button";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Showcard Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label20.ForeColor = Color.DarkViolet;
+            label20.Location = new Point(984, 475);
+            label20.Name = "label20";
+            label20.Size = new Size(193, 17);
+            label20.TabIndex = 32;
+            label20.Text = "To save Payment Summary";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Showcard Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label21.ForeColor = Color.DarkViolet;
+            label21.Location = new Point(699, 472);
+            label21.Name = "label21";
+            label21.Size = new Size(228, 17);
+            label21.TabIndex = 33;
+            label21.Text = "To generate Payment Summary";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1269, 673);
+            Controls.Add(label21);
+            Controls.Add(label20);
+            Controls.Add(label18);
+            Controls.Add(label19);
+            Controls.Add(label16);
+            Controls.Add(label17);
             Controls.Add(btnSave);
             Controls.Add(btnCalculateTax);
             Controls.Add(panel3);
@@ -399,6 +517,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -434,5 +553,14 @@
         public TextBox txtEmployeeID;
         public Button btnSave;
         public Button btnCalculateTax;
+        private Label label15;
+        private Label label16;
+        private Label label17;
+        private Label label18;
+        private Label label19;
+        private Label label20;
+        private Label label21;
+        private Label label22;
+        private Label label23;
     }
 }
