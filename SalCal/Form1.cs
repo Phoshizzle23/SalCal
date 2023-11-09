@@ -168,7 +168,7 @@ namespace SalCal
 
                 // Input the hours worked and hourly rate from the user
                 double hoursWorked;
-                
+
 
                 if (!double.TryParse(txtHoursWorked.Text, out hoursWorked))
                 {

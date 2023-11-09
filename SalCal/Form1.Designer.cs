@@ -80,7 +80,7 @@
             btnSave.ForeColor = Color.DarkViolet;
             btnSave.Location = new Point(999, 301);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(150, 126);
+            btnSave.Size = new Size(178, 126);
             btnSave.TabIndex = 8;
             btnSave.Text = "SAVE";
             btnSave.UseVisualStyleBackColor = false;
@@ -442,7 +442,7 @@
             label17.AutoSize = true;
             label17.Font = new Font("Showcard Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label17.ForeColor = Color.DarkViolet;
-            label17.Location = new Point(699, 455);
+            label17.Location = new Point(711, 455);
             label17.Name = "label17";
             label17.Size = new Size(211, 17);
             label17.TabIndex = 28;
@@ -453,7 +453,7 @@
             label18.AutoSize = true;
             label18.Font = new Font("Showcard Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label18.ForeColor = Color.DarkViolet;
-            label18.Location = new Point(1054, 438);
+            label18.Location = new Point(1064, 438);
             label18.Name = "label18";
             label18.Size = new Size(50, 17);
             label18.TabIndex = 31;
@@ -464,7 +464,7 @@
             label19.AutoSize = true;
             label19.Font = new Font("Showcard Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label19.ForeColor = Color.DarkViolet;
-            label19.Location = new Point(1010, 455);
+            label19.Location = new Point(1020, 455);
             label19.Name = "label19";
             label19.Size = new Size(139, 17);
             label19.TabIndex = 30;
@@ -475,7 +475,7 @@
             label20.AutoSize = true;
             label20.Font = new Font("Showcard Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label20.ForeColor = Color.DarkViolet;
-            label20.Location = new Point(984, 475);
+            label20.Location = new Point(994, 475);
             label20.Name = "label20";
             label20.Size = new Size(193, 17);
             label20.TabIndex = 32;
