@@ -7,9 +7,27 @@ The client has requested a weekly payment calculator application to calculate an
 ___________
 Application Screenshots
 ___________
-<p align="center">1.1_Load App</p>
+<p align="center">1.Load App</p>
 
 <p align="center">
-  <img src="https://github.com/Phoshizzle23/Contacts/blob/master/Screenshots/1.1_Load%20App.JPG?raw=true" alt="1.1_Load App.JPG">
+  <img src="https://github.com/Phoshizzle23/SalaryCalculatorAU/blob/master/Screenshots/1.AppLoad.JPG?raw=true">
+</p>
+_______________________________________________________________________________________________________________________________________________________
+<p align="center">2.InputHours</p>
+
+<p align="center">
+  <img src="https://github.com/Phoshizzle23/SalaryCalculatorAU/blob/master/Screenshots/2.InputHours.JPG?raw=true">
+</p>
+_______________________________________________________________________________________________________________________________________________________
+<p align="center">3.CalculateTax</p>
+
+<p align="center">
+  <img src="https://github.com/Phoshizzle23/SalaryCalculatorAU/blob/master/Screenshots/3.CalculateTax.JPG?raw=true">
+</p>
+_______________________________________________________________________________________________________________________________________________________
+<p align="center">4.SavePaySummary</p>
+
+<p align="center">
+  <img src="https://github.com/Phoshizzle23/SalaryCalculatorAU/blob/master/Screenshots/4.SavePaySummary.JPG?raw=true">
 </p>
 _______________________________________________________________________________________________________________________________________________________
